@@ -40,7 +40,12 @@ describe("Singly linked list", function() {
 		expect(list.element(10, 100)).toEqual(100);
 		expect(list.element(10)).toEqual(100);
 	});
-	
+
+	// Pop
+	it("pops an element off the top of a linked list", function() {
+		
+	});
+
 	// Push
 	it("pushes a single element into a linked list", function() {
 		var list = new SinglyLinkedList();
@@ -55,6 +60,11 @@ describe("Singly linked list", function() {
 		expect(list.element(0)).toEqual(5);
 		expect(list.element(1)).toEqual(10);
 		expect(list.element(2)).toEqual(15);
+	});
+	it("returns the list's length when pushing", function() {
+		var list = new SinglyLinkedList();
+		expect(list.push(5, 10, 15)).toEqual(3);
+		expect(list.push(12)).toEqual(4);
 	});
 
 });
