@@ -43,7 +43,15 @@ describe("Singly linked list", function() {
 
 	// Pop
 	it("pops an element off the top of a linked list", function() {
-		
+		var list = new SinglyLinkedList(10, 20, 30, 40);
+		expect(list.pop()).toEqual(40);
+		expect(list.pop()).toEqual(30);
+		expect(list.pop()).toEqual(20);
+		expect(list.pop()).toEqual(10);
+	});
+	it("returns undefined if you pop an empty linked list", function() {
+		var list = new SinglyLinkedList();
+		expect(list.pop()).toBeUndefined();
 	});
 
 	// Push
