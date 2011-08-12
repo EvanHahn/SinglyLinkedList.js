@@ -48,5 +48,13 @@ describe("Singly linked list", function() {
 		expect(list.length()).toEqual(1);
 		expect(list.element(0)).toEqual(5);
 	});
+	it("pushes multiple elements into a linked list", function() {
+		var list = new SinglyLinkedList();
+		list.push(5, 10, 15);
+		expect(list.length()).toEqual(3);
+		expect(list.element(0)).toEqual(5);
+		expect(list.element(1)).toEqual(10);
+		expect(list.element(2)).toEqual(15);
+	});
 
 });
