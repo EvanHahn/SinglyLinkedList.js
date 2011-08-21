@@ -85,7 +85,31 @@ SinglyLinkedList.prototype = {
 
 	},
 
-	// Pop TODO
+	// Pop
+	pop: function() {
+
+		// The first one is undefined, so we're done
+		if (typeof this.first === "undefined") {
+			return;
+		}
+
+		// There's only one, so return the first one
+		if (typeof this.first.next === "undefined") {
+			var toReturn = this.first.value;
+			this.first = void 0;
+			return toReturn;
+		}
+
+		// Find the last one and keep going
+		var at = this.first;
+		while (typeof at.next.next !== "undefined") {
+			at = at.next;
+		}
+		var toReturn = at.next.value;
+		at.next = void 0;
+		return toReturn;
+
+	},
 
 	// Push
 	push: function() {

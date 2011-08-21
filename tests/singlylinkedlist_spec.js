@@ -42,16 +42,21 @@ describe("Singly linked list", function() {
 	});
 
 	// Pop
+	it("returns undefined if you pop an empty linked list", function() {
+		var list = new SinglyLinkedList();
+		expect(list.pop()).toBeUndefined();
+	});
+	it("pops an element off the top of a linked list with just one element", function() {
+		var list = new SinglyLinkedList();
+		list.push(10);
+		expect(list.pop()).toEqual(10);
+	});
 	it("pops an element off the top of a linked list", function() {
 		var list = new SinglyLinkedList(10, 20, 30, 40);
 		expect(list.pop()).toEqual(40);
 		expect(list.pop()).toEqual(30);
 		expect(list.pop()).toEqual(20);
 		expect(list.pop()).toEqual(10);
-	});
-	it("returns undefined if you pop an empty linked list", function() {
-		var list = new SinglyLinkedList();
-		expect(list.pop()).toBeUndefined();
 	});
 
 	// Push
