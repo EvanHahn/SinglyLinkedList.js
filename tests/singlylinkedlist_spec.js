@@ -75,4 +75,43 @@ describe("Singly linked list", function() {
 		expect(list.push(12)).toEqual(4);
 	});
 
+	// Reverse
+	it("reverses an empty linked list", function() {
+		var list = new SinglyLinkedList();
+		expect(list.reverse()).toEqual(new SinglyLinkedList());
+		expect(list).toEqual(new SinglyLinkedList());
+	});
+	it("reverses a linked list with one element", function() {
+		var list = new SinglyLinkedList(12);
+		expect(list.reverse()).toEqual(new SinglyLinkedList(12));
+		expect(list).toEqual(new SinglyLinkedList(12));
+	});
+	it("reverses a linked list with many elements", function() {
+		var list = new SinglyLinkedList(10, 20, 30, 40);
+		expect(list.reverse()).toEqual(new SinglyLinkedList(40, 30, 20, 10));
+		expect(list).toEqual(new SinglyLinkedList(40, 30, 20, 10));
+	});
+
+	// Shift
+	it("shifts a linked list with one element", function() {
+		var list = new SinglyLinkedList();
+		expect(list.shift()).toBeUndefined();
+	});
+	it("shifts a linked list with one element", function() {
+		var list = new SinglyLinkedList(12);
+		expect(list.shift()).toEqual(12);
+		expect(list.length()).toEqual(0);
+	});
+	it("shifts a linked list with many elements", function() {
+		var list = new SinglyLinkedList(10, 20, 30, 40);
+		expect(list.shift()).toEqual(10);
+		expect(list).toEqual(new SinglyLinkedList(20, 30, 40));
+	});
+
+	// Sort
+	it("sorts an array with many elements", function() {
+		var list = new SinglyLinkedList(4, 2, 3, 1);
+		expect(list.sort()).toEqual(new SinglyLinkedList(1, 2, 3, 4));
+	});
+
 });
