@@ -123,7 +123,8 @@ describe("Singly linked list", function() {
 		expect(list.shift()).toBeUndefined();
 	});
 	it("shifts a linked list with one element", function() {
-		var list = new SinglyLinkedList(12);
+		var list = new SinglyLinkedList();
+		list.push(12);
 		expect(list.shift()).toEqual(12);
 		expect(list.length()).toEqual(0);
 	});

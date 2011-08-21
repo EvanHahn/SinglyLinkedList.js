@@ -165,7 +165,20 @@ SinglyLinkedList.prototype = {
 	
 	// Reverse TODO
 	
-	// Shift TODO
+	// Shift
+	shift: function() {
+
+		// Empty; return undefined
+		if (typeof this.first === "undefined") {
+			return;
+		}
+
+		// Return the last one
+		var toReturn = this.first.value;
+		this.first = this.first.next;
+		return toReturn;
+
+	},
 	
 	// Sort TODO
 	
