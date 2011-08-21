@@ -14,10 +14,24 @@ var SinglyLinkedList = function() {
 	// Deal with arguments
 	var argsLength = arguments.length;
 	if (argsLength === 1) {
-		// There's only one argument: the length will be this argument
-		for (var i = 0; i < arguments[0]; i ++) {
-			this.push(void 0);
+
+		// The argument is an array?
+		if (arguments[0] instanceof Array) {
+
+			var arrLength = arguments[0].length;
+			for (var i = 0; i < arrLength; i ++) {
+				this.push(arguments[0][i]);
+			}
+
+		} else {
+
+			// It's a number, so let's make it that size
+			for (var i = 0; i < arguments[0]; i ++) {
+				this.push(void 0);
+			}
+
 		}
+
 	} else if (argsLength > 1) {
 		// More than one argument: add everything in here
 		for (var i = 0; i < argsLength; i ++) {

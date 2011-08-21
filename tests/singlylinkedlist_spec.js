@@ -13,6 +13,11 @@ describe("Singly linked list", function() {
 		var list = new SinglyLinkedList(10, 20, 30);
 		expect(list.length()).toEqual(3);
 	});
+	it("initializes properly as a copy of an array", function() {
+		var arr = [10, 20, 30];
+		var list = new SinglyLinkedList(arr);
+		expect(list.length()).toEqual(arr.length);
+	});
 
 	// Accessor/assignment
 	it("accesses single elements within bounds", function() {
@@ -39,6 +44,21 @@ describe("Singly linked list", function() {
 		var list = new SinglyLinkedList(10, 20, 30, 40);
 		expect(list.element(10, 100)).toEqual(100);
 		expect(list.element(10)).toEqual(100);
+	});
+
+	// To array
+	it("converts an empty linked list to an array", function() {
+		var list = new SinglyLinkedList();
+		expect(list.toArray()).toEqual([]);
+	});
+	it("converts a linked list to an array if it has one element", function() {
+		var list = new SinglyLinkedList();
+		list.push(12);
+		expect(list.toArray()).toEqual([12]);
+	});
+	it("converts a linked list to an array if it has multiple elements", function() {
+		var list = new SinglyLinkedList(1, 2, 3, 4, 5);
+		expect(list.toArray()).toEqual([1, 2, 3, 4, 5]);
 	});
 
 	// Pop
