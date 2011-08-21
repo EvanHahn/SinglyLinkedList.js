@@ -5,6 +5,9 @@
 // Constructor
 var SinglyLinkedList = function() {
 
+	// Config
+	this.defaultJoinSeparator = ",";
+
 	// Initial values
 	this.first;
 
@@ -133,7 +136,7 @@ SinglyLinkedList.prototype = {
 
 		};
 		return this.length();
-	}
+	},
 	
 	// Reverse TODO
 	
@@ -147,13 +150,36 @@ SinglyLinkedList.prototype = {
 	
 	// Concat TODO
 	
-	// Join TODO
+	// Join
+	join: function(separator) {
+
+		// Default separator
+		if (typeof separator === "undefined") {
+			separator = this.defaultJoinSeparator;
+		}
+
+		// Let's do it!
+		var toReturn = "";
+		var at = this.first;
+		while (typeof at !== "undefined") {
+			toReturn += at.value;
+			at = at.next;
+			if (typeof at !== "undefined") {
+				toReturn += separator;
+			}
+		}
+		return toReturn;
+
+	},
 	
 	// Slice TODO
 	
 	// toSource TODO
 	
-	// toString TODO
+	// toString
+	toString: function() {
+		return this.join();
+	}
 	
 	// indexOf TODO
 	
