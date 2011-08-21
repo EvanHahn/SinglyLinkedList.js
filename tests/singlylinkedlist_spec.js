@@ -119,4 +119,36 @@ describe("Singly linked list", function() {
 		expect(list.sort()).toEqual(new SinglyLinkedList(1, 2, 3, 4));
 	});
 
+	// Splice TODO
+	
+	// Unshift TODO
+	
+	// Concat TODO
+	
+	// Join TODO
+	
+	// Slice TODO
+	
+	// toSource TODO
+	
+	// toString TODO
+	
+	// indexOf TODO
+	
+	// lastIndexOf TODO
+	
+	// filter TODO
+	
+	// forEach TODO
+	
+	// every TODO
+	
+	// map TODO
+
+	// some TODO
+
+	// reduce TODO
+
+	// ReduceRight TODO
+
 });
