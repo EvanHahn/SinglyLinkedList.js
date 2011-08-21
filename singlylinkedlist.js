@@ -176,7 +176,7 @@ SinglyLinkedList.prototype = {
 	
 	// toSource TODO
 	
-	// toString
+	// Convert to a string
 	toString: function() {
 		return this.join();
 	}
