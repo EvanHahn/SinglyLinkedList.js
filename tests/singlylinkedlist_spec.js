@@ -214,7 +214,27 @@ describe("Singly linked list", function() {
 		expect(list.toString()).toEqual("1,2,3,4,5");
 	});
 	
-	// indexOf TODO
+	// indexOf
+	it("finds the first index of something in a linked list when it's there", function() {
+		var list = new SinglyLinkedList(1, 2, 3, 4, 5, 1, 2, 3, 4, 5);
+		expect(list.indexOf(3)).toEqual(2);
+	});
+	it("finds the first index of something in a linked list when it's not there", function() {
+		var list = new SinglyLinkedList(1, 2, 3, 4, 5, 1, 2, 3, 4, 5);
+		expect(list.indexOf(6)).toEqual(-1);
+	});
+	it("finds the first index of something in a linked list when it's there, with a specified starting index", function() {
+		var list = new SinglyLinkedList(1, 2, 3, 4, 5, 1, 2, 3, 4, 5);
+		expect(list.indexOf(3, 4)).toEqual(7);
+	});
+	it("finds the first index of something in a linked list when it's there, with a specified starting index", function() {
+		var list = new SinglyLinkedList(1, 2, 3, 4, 5, 1, 2, 3, 4, 5);
+		expect(list.indexOf(6, 4)).toEqual(-1);
+	});
+	it("finds nothing if you start the index out of the list's bounds", function() {
+		var list = new SinglyLinkedList(1, 2, 3);
+		expect(list.indexOf(1, 100)).toEqual(-1);
+	});
 	
 	// lastIndexOf TODO
 	

@@ -234,9 +234,29 @@ SinglyLinkedList.prototype = {
 	// Convert to a string
 	toString: function() {
 		return this.join();
-	}
+	},
 	
-	// indexOf TODO
+	// indexOf
+	indexOf: function(searchElement, fromIndex) {
+
+		// Default index
+		if (typeof fromIndex === "undefined") {
+			fromIndex = 0;
+		}
+
+		// Go through until we find the first
+		var count = 0;
+		var at = this.first;
+		while (typeof at !== "undefined") {
+			if ((at.value === searchElement) && (count >= fromIndex)) {
+				return count;
+			}
+			at = at.next;
+			count ++;
+		}
+		return -1;
+
+	}
 	
 	// lastIndexOf TODO
 	
