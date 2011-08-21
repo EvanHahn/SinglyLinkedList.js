@@ -125,8 +125,39 @@ describe("Singly linked list", function() {
 	
 	// Concat TODO
 	
-	// Join TODO
-	
+	// Join
+	it("joins an empty linked list to a string", function() {
+		var list = new SinglyLinkedList();
+		expect(list.join()).toEqual("");
+	});
+	it("joins a linked list to a string with 1 element, default separator", function() {
+		var list = new SinglyLinkedList();
+		list.push(12);
+		expect(list.join()).toEqual("12");
+	});
+	it("joins a linked list to a string with many elements, default separator", function() {
+		var list = new SinglyLinkedList(1, 2, 3, 4, 5);
+		expect(list.join()).toEqual("1,2,3,4,5");
+	});
+	it("joins a linked list to a string with 1 element, empty separator", function() {
+		var list = new SinglyLinkedList();
+		list.push(12);
+		expect(list.join("")).toEqual("12");
+	});
+	it("joins a linked list to a string with many elements, empty separator", function() {
+		var list = new SinglyLinkedList(1, 2, 3, 4, 5);
+		expect(list.join("")).toEqual("12345");
+	});
+	it("joins a linked list to a string with 1 element, custom separator", function() {
+		var list = new SinglyLinkedList();
+		list.push(12);
+		expect(list.join(" ")).toEqual("12");
+	});
+	it("joins a linked list to a string with many elements, custom separator", function() {
+		var list = new SinglyLinkedList(1, 2, 3, 4, 5);
+		expect(list.join(" ")).toEqual("1 2 3 4 5");
+	});
+
 	// Slice TODO
 	
 	// toSource TODO
