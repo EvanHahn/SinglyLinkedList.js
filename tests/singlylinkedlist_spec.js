@@ -197,9 +197,7 @@ describe("Singly linked list", function() {
 	});
 
 	// Slice TODO
-	
-	// toSource TODO
-	
+
 	// toString
 	it("converts an empty linked list to a string", function() {
 		var list = new SinglyLinkedList();

@@ -204,7 +204,7 @@ SinglyLinkedList.prototype = {
 		};
 		return this.length();
 	},
-	
+
 	// Concat TODO
 	
 	// Join
@@ -230,9 +230,7 @@ SinglyLinkedList.prototype = {
 	},
 	
 	// Slice TODO
-	
-	// toSource TODO
-	
+
 	// Convert to a string
 	toString: function() {
 		return this.join();
