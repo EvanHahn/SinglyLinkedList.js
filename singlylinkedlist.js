@@ -101,6 +101,17 @@ SinglyLinkedList.prototype = {
 		}
 
 	},
+	
+	// To array
+	toArray: function() {
+		var toReturn = [];
+		var at = this.first;
+		while (typeof at !== "undefined") {
+			toReturn.push(at.value);
+			at = at.next;
+		}
+		return toReturn;
+	},
 
 	// Pop
 	pop: function() {
