@@ -142,8 +142,25 @@ describe("Singly linked list", function() {
 
 	// Splice TODO
 	
-	// Unshift TODO
-	
+	// Unshift
+	it("unshifts an empty linked list", function() {
+		var list = new SinglyLinkedList();
+		expect(list.unshift(12)).toEqual(list.length());
+		expect(list.element(0)).toEqual(12);
+	});
+	it("unshifts a linked list with one element", function() {
+		var list = new SinglyLinkedList();
+		list.push(1);
+		expect(list.unshift(2)).toEqual(list.length());
+		expect(list.element(0)).toEqual(2);
+		expect(list.element(1)).toEqual(1);
+	});
+	it("unshifts a linked list with many elements", function() {
+		var list = new SinglyLinkedList(1, 2);
+		expect(list.unshift(4)).toEqual(list.length());
+		expect(list).toEqual(new SinglyLinkedList(4, 1, 2));
+	});
+
 	// Concat TODO
 	
 	// Join

@@ -184,7 +184,26 @@ SinglyLinkedList.prototype = {
 	
 	// Splice TODO
 	
-	// Unshift TODO
+	// Unshift
+	unshift: function() {
+		var argsLength = arguments.length;
+		for (var i = 0; i < argsLength; i ++) {
+
+			// Make a new node
+			var node = {};
+			node.value = arguments[i];
+
+			// Place it
+			if (typeof this.first === "undefined") {
+				this.first = node;
+			} else {
+				node.next = this.first;
+				this.first = node;
+			}
+
+		};
+		return this.length();
+	},
 	
 	// Concat TODO
 	
