@@ -131,7 +131,21 @@ describe("Singly linked list", function() {
 	
 	// toSource TODO
 	
-	// toString TODO
+	// toString
+	it("converts an empty linked list to a string", function() {
+		var list = new SinglyLinkedList();
+		expect(list.toString()).toEqual("");
+	});
+
+	it("converts a linked list to a string with 1 element", function() {
+		var list = new SinglyLinkedList();
+		list.push(12);
+		expect(list.toString()).toEqual("12");
+	});
+	it("converts a linked list to a string with many elements", function() {
+		var list = new SinglyLinkedList(1, 2, 3, 4, 5);
+		expect(list.toString()).toEqual("1,2,3,4,5");
+	});
 	
 	// indexOf TODO
 	
