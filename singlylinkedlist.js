@@ -45,12 +45,12 @@ SinglyLinkedList.prototype = {
 
 	// Length
 	length: function() {
-		if (typeof this.first === "undefined") {
+		if (!this.first) {
 			return 0;
 		}
 		var count = 1;
 		var at = this.first;
-		while (typeof at.next !== "undefined") {
+		while (at.next) {
 			at = at.next;
 			count ++;
 		}
@@ -62,7 +62,7 @@ SinglyLinkedList.prototype = {
 		var argsLength = arguments.length;
 		
 		// Any first value?
-		if (typeof this.first === "undefined") {
+		if (!this.first) {
 			if (argsLength === 1) {	// Accessor
 				return;
 			} else if (argsLength === 2) {	// Assignment
@@ -74,7 +74,7 @@ SinglyLinkedList.prototype = {
 		// There exists at least one value. Hunt through.
 		var count = 0;
 		var at = this.first;
-		while ((typeof at.next !== "undefined") && (count < index)) {
+		while ((at.next) && (count < index)) {
 			at = at.next;
 			count ++;
 		}
@@ -106,7 +106,7 @@ SinglyLinkedList.prototype = {
 	toArray: function() {
 		var toReturn = [];
 		var at = this.first;
-		while (typeof at !== "undefined") {
+		while (at) {
 			toReturn.push(at.value);
 			at = at.next;
 		}
@@ -117,12 +117,12 @@ SinglyLinkedList.prototype = {
 	pop: function() {
 
 		// The first one is undefined, so we're done
-		if (typeof this.first === "undefined") {
+		if (!this.first) {
 			return;
 		}
 
 		// There's only one, so return the first one
-		if (typeof this.first.next === "undefined") {
+		if (!this.first.next) {
 			var toReturn = this.first.value;
 			this.first = void 0;
 			return toReturn;
@@ -130,7 +130,7 @@ SinglyLinkedList.prototype = {
 
 		// Find the last one and keep going
 		var at = this.first;
-		while (typeof at.next.next !== "undefined") {
+		while (at.next.next) {
 			at = at.next;
 		}
 		var toReturn = at.next.value;
@@ -149,11 +149,11 @@ SinglyLinkedList.prototype = {
 			node.value = arguments[i];
 
 			// Place it
-			if (typeof this.first === "undefined") {
+			if (!this.first) {
 				this.first = node;
 			} else {
 				var at = this.first;
-				while (typeof at.next !== "undefined") {
+				while (at.next) {
 					at = at.next;
 				}
 				at.next = node;
@@ -163,13 +163,18 @@ SinglyLinkedList.prototype = {
 		return this.length();
 	},
 	
-	// Reverse TODO
+	// Reverse
+	reverse: function() {
+		var reversed = new SinglyLinkedList(this.toArray().reverse());
+		this.first = reversed.first;
+		return this;
+	},
 	
 	// Shift
 	shift: function() {
 
 		// Empty; return undefined
-		if (typeof this.first === "undefined") {
+		if (!this.first) {
 			return;
 		}
 
@@ -180,7 +185,12 @@ SinglyLinkedList.prototype = {
 
 	},
 	
-	// Sort TODO
+	// Sort
+	sort: function() {
+		var sorted = new SinglyLinkedList(this.toArray().sort());
+		this.first = sorted.first;
+		return this;
+	},
 	
 	// Splice TODO
 	
@@ -194,7 +204,7 @@ SinglyLinkedList.prototype = {
 			node.value = arguments[i];
 
 			// Place it
-			if (typeof this.first === "undefined") {
+			if (!this.first) {
 				this.first = node;
 			} else {
 				node.next = this.first;
@@ -218,10 +228,10 @@ SinglyLinkedList.prototype = {
 		// Let's do it!
 		var toReturn = "";
 		var at = this.first;
-		while (typeof at !== "undefined") {
+		while (at) {
 			toReturn += at.value;
 			at = at.next;
-			if (typeof at !== "undefined") {
+			if (at) {
 				toReturn += separator;
 			}
 		}
@@ -229,7 +239,49 @@ SinglyLinkedList.prototype = {
 
 	},
 	
-	// Slice TODO
+	// Slice
+	slice: function(amount) {
+
+		// Initialize what I need to return
+		var toReturn = new SinglyLinkedList();
+
+		// Round the amount
+		var sign = 1;
+		if (amount < 0) {
+			sign = -1;
+		}
+		amount = Math.floor(Math.abs(amount));
+
+		// If it's positive, go from the front
+		if (sign == 1) {
+			var count = 0;
+			var at = this.first;
+			while (at) {
+				if (count >= amount) {
+					toReturn.push(at.value);
+				}
+				at = at.next;
+				count ++;
+			}
+		}
+		
+		// If it's negative, go from the back
+		if (sign == -1) {
+			var count = this.length() - amount;
+			var at = this.first;
+			while (at) {
+				if (count <= 0) {
+					toReturn.push(at.value);
+				}
+				at = at.next;
+				count --;
+			}
+		}
+
+		// Return!
+		return toReturn;
+
+	},
 
 	// Convert to a string
 	toString: function() {
@@ -240,14 +292,14 @@ SinglyLinkedList.prototype = {
 	indexOf: function(searchElement, fromIndex) {
 
 		// Default index
-		if (typeof fromIndex === "undefined") {
+		if (!fromIndex) {
 			fromIndex = 0;
 		}
 
 		// Go through until we find the first
 		var count = 0;
 		var at = this.first;
-		while (typeof at !== "undefined") {
+		while (at) {
 			if ((at.value === searchElement) && (count >= fromIndex)) {
 				return count;
 			}

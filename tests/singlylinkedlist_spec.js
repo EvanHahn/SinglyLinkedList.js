@@ -196,7 +196,35 @@ describe("Singly linked list", function() {
 		expect(list.join(" ")).toEqual("1 2 3 4 5");
 	});
 
-	// Slice TODO
+	// Slice
+	it("slices an empty list in the positive direction", function() {
+		var list = new SinglyLinkedList();
+		expect(list.slice(5)).toEqual(new SinglyLinkedList());
+	});
+	it("slices an empty list in the negative direction", function() {
+		var list = new SinglyLinkedList();
+		expect(list.slice(-5)).toEqual(new SinglyLinkedList());
+	});
+	it("slices a list in the positive direction if the index is in bounds", function() {
+		var list = new SinglyLinkedList(1, 2, 3);
+		expect(list.slice(1)).toEqual(new SinglyLinkedList(2, 3));
+		expect(list).toEqual(new SinglyLinkedList(1, 2, 3));
+	});
+	it("slices a list in the positive direction if the index is out of bounds", function() {
+		var list = new SinglyLinkedList(1, 2, 3);
+		expect(list.slice(100)).toEqual(new SinglyLinkedList());
+		expect(list).toEqual(new SinglyLinkedList(1, 2, 3));
+	});
+	it("slices a list in the negative direction if the index is in bounds", function() {
+		var list = new SinglyLinkedList(1, 2, 3);
+		expect(list.slice(-2)).toEqual(new SinglyLinkedList(2, 3));
+		expect(list).toEqual(new SinglyLinkedList(1, 2, 3));
+	});
+	it("slices a list in the negative direction if the index is out of bounds", function() {
+		var list = new SinglyLinkedList(1, 2, 3);
+		expect(list.slice(-100)).toEqual(new SinglyLinkedList(1, 2, 3));
+		expect(list).toEqual(new SinglyLinkedList(1, 2, 3));
+	});
 
 	// toString
 	it("converts an empty linked list to a string", function() {
