@@ -55,10 +55,10 @@ Completion status
   * [`join()`](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/join)
   * [`toString()`](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/toString)
   * [`indexOf()`](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/indexOf)
-
-* Not implemented yet
   * [`reverse()`](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/reverse)
   * [`sort()`](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/sort)
+
+* Not implemented yet
   * [`splice()`](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/splice)
   * [`concat()`](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/concat)
   * [`slice()`](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/slice)
